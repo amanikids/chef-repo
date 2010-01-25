@@ -65,9 +65,7 @@
 
   "iptables": {
     "allow_internet_access_for": {
-      "Afrique's Laptop (Wireless)": "00:1a:73:15:7a:12",
-      "Afrique's Laptop (Wired)":    "00:17:08:4c:33:08",
-      "Afrique's Personal Laptop":   "00:16:6f:09:13:d2",
+      "Afrique's Laptop":            "00:26:b6:10:d7:5c",
       "Fidea's Laptop":              "00:1a:73:15:7a:15",
       "Japhary's Laptop":            "00:1a:73:0f:79:17",
       "Joe's Laptop":                "00:1A:73:15:7A:33",
