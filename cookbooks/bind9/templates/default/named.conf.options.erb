@@ -1,0 +1,22 @@
+options {
+  directory "/var/cache/bind";
+
+<%- if @node[:bind9][:forwarders].any? -%>
+  forwarders {
+	  <%- @node[:bind9][:forwarders].each do |address| -%>
+    <%= address %>;
+		<%- end -%>
+  };
+<%- end -%>
+
+  auth-nxdomain no;    # conform to RFC1035
+
+<%- if @node[:bind9][:listen_on].any? -%>
+  listen-on {
+	  <%- @node[:bind9][:listen_on].each do |address| -%>
+    <%= address %>;
+		<%- end -%>
+  };
+<%- end -%>
+};
+

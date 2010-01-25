@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ "$IFACE" = <%= @node[:iptables][:downstream] %> ]; then
+  /sbin/iptables-restore < /etc/network/iptables
+fi

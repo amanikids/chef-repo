@@ -1,0 +1,13 @@
+$TTL 3D
+@       IN      SOA     ns.<%= @zone %>. hostmaster.<%= @zone %>. (
+                      200805270         ; Serial
+                             8H         ; Refresh
+                             2H         ; Retry
+                             4W         ; Expire
+                             1D )       ; Negative Cache TTL
+                NS      ns.<%= @zone %>.
+<%- @hosts.each do |name, attributes| -%>
+<%- network, last = attributes[:address].scan(/^(#{Regexp.escape(@network)}).(\d+)$/).flatten -%>
+<%- next unless network -%>
+<%= last %> PTR <%= name %>.<%= @zone %>.
+<%- end -%>

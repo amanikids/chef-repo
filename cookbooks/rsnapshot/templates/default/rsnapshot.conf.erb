@@ -1,0 +1,25 @@
+config_version	1.2
+snapshot_root	/var/cache/rsnapshot/
+
+cmd_cp			/bin/cp
+cmd_rm			/bin/rm
+cmd_rsync		/usr/bin/rsync
+cmd_ssh			/usr/bin/ssh
+cmd_logger		/usr/bin/logger
+cmd_du			/usr/bin/du
+cmd_rsnapshot_diff	/usr/bin/rsnapshot-diff
+
+interval	hourly	6
+interval	daily	7
+interval	weekly	4
+interval	monthly	6
+
+lockfile	/var/run/rsnapshot.pid
+
+<%- @node[:rsnapshot][:directories].each do |directory| -%>
+backup	<%= File.expand_path(directory) %>/	localhost/
+<%- end -%>
+
+<%- @node[:rsnapshot][:scripts].each do |script| -%>
+backup_script	<%= script %>	<%= File.basename(script.split(' ').first) %>/
+<%- end -%>

@@ -1,0 +1,14 @@
+<%- @node[:bind9][:zones].each do |zone, attributes| -%>
+<%- network = attributes[:network] -%>
+zone "<%= network.split('.').reverse.join('.') %>.in-addr.arpa" {
+        type master;
+        notify no;
+        file "/etc/bind/db.<%= network %>";
+};
+
+zone "<%= zone %>" {
+        type master;
+        notify no;
+        file "/etc/bind/db.<%= zone %>";
+};
+<%- end -%>

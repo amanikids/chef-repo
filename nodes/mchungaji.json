@@ -1,0 +1,107 @@
+{
+  "recipes": ["bind9", "dhcpd", "iptables", "samba", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "mysql-ruby::local", "imagemagick", "kituo-application"],
+
+  "bind9": {
+    "forwarders": ["62.128.175.14", "62.128.175.15"],
+    "listen_on":  ["127.0.0.1", "10.0.0.1"],
+
+    "zones": {
+      "amani": {
+        "network": "10.0.0",
+
+        "hosts": {
+          "hn7000s": {
+            "address": "172.20.234.33",
+            "cnames": ["modem", "satellite", "afsat"]
+          },
+
+          "mchungaji": {
+            "address": "10.0.0.1",
+            "cnames": [
+              "kituo", "assets0.kituo", "assets1.kituo", "assets2.kituo", "assets3.kituo",
+              "kituo-mazoezi", "assets0.kituo-mazoezi", "assets1.kituo-mazoezi", "assets2.kituo-mazoezi", "assets3.kituo-mazoezi"
+            ]
+          },
+
+          "mn700": {
+            "address": "10.0.0.2",
+            "cnames": ["wireless"]
+          },
+
+          "h6310": {
+            "address": "10.0.0.3",
+            "cnames": ["printer"]
+          }
+        }
+      }
+    }
+  },
+
+  "dhcpd": {
+    "broadcast_address": "10.0.0.255",
+    "domain_name_servers": "10.0.0.1",
+    "routers": "10.0.0.1",
+
+    "subnets": {
+      "10.0.0.0": {
+        "netmask": "255.255.255.0",
+        "from": "10.0.0.16",
+        "to": "10.0.0.254"
+      }
+    },
+
+    "fixed_addresses": {
+      "dir615": {
+        "mac": "00:21:91:D9:F2:74",
+        "address": "10.0.0.2"
+      },
+
+      "hp6310": {
+        "mac": "00:16:35:51:1a:0e",
+        "address": "10.0.0.3"
+      }
+    }
+  },
+
+  "iptables": {
+    "allow_internet_access_for": {
+      "Afrique's Laptop (Wireless)": "00:1a:73:15:7a:12",
+      "Afrique's Laptop (Wired)":    "00:17:08:4c:33:08",
+      "Afrique's Personal Laptop":   "00:16:6f:09:13:d2",
+      "Fidea's Laptop":              "00:1a:73:15:7a:15",
+      "Japhary's Laptop":            "00:1a:73:0f:79:17",
+      "Joe's Laptop":                "00:1A:73:15:7A:33",
+      "Joyce's Laptop":              "00:0f:b0:c8:1c:d9",
+      "Matthew's Laptop":            "00:16:cb:ba:ab:b4",
+      "Rogasian's Laptop":           "00:11:25:46:2c:7c",
+      "Salma's Laptop":              "00:1a:73:15:79:e7",
+      "Teachers' Desktop":           "00:04:76:0c:a2:a8",
+      "Valerie's Laptop":            "00:1A:73:15:7A:06"
+    }
+  },
+
+  "passenger": {
+    "max_pool_size": "6"
+  },
+
+  "rsnapshot": {
+    "directories": [
+      "/var/lib/samba/shares",
+      "/var/www/apps/git",
+      "/var/www/apps/kituo_production/shared/system"
+    ],
+    "scripts": [
+      "/usr/bin/mysqldump --all-databases | gzip > mysqldump_all_databases.sql.gz"
+    ]
+  },
+
+  "samba": {
+    "workgroup": "AMANI",
+    "listen_interfaces": ["eth1"],
+    "shares": {
+      "communications": { "users": ["valerie", "joe", "hippo"] },
+      "lifeline":       { "users": ["valerie", "joe", "salma"] },
+      "management":     { "users": ["valerie", "japhary", "joyce", "afrique", "rogasian"] }
+    }
+  }
+}

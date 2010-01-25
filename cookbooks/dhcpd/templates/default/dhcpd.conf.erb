@@ -1,0 +1,23 @@
+ddns-update-style none;
+authoritative;
+log-facility local7;
+
+option broadcast-address <%= @node[:dhcpd][:broadcast_address] %>;
+option domain-name "<%= @node[:domain] %>";
+option domain-name-servers <%= @node[:dhcpd][:domain_name_servers] %>;
+option routers <%= @node[:dhcpd][:routers] %>;
+default-lease-time 600;
+max-lease-time 7200;
+
+<%- @node[:dhcpd][:subnets].each do |address, attributes| -%>
+subnet <%= address %> netmask <%= attributes[:netmask] %> {
+  range <%= attributes[:from] %> <%= attributes[:to] %>;
+}
+<%- end -%>
+
+<%- @node[:dhcpd][:fixed_addresses].each do |name, attributes| -%>
+host <%= name %> {
+  hardware ethernet <%= attributes[:mac] %>;
+  fixed-address <%= attributes[:address] %>;
+}
+<%- end -%>

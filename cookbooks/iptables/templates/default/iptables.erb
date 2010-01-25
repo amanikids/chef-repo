@@ -1,0 +1,26 @@
+*filter
+:INPUT ACCEPT
+:FORWARD DROP
+:OUTPUT ACCEPT
+<%- unless @node[:iptables][:allow_internet_access_for].empty? -%>
+<%-
+  upstream_interface   = @node[:iptables][:upstream]
+  downstream_interface = @node[:iptables][:downstream]
+  local_network = ''
+  @node[:network][:interfaces][downstream_interface][:addresses].each do |address, attributes|
+    next unless attributes[:family] == 'inet'
+    local_network = "#{address}/#{attributes[:netmask]}"
+  end
+-%>
+  <%- @node[:iptables][:allow_internet_access_for].each do |description, mac_address| -%>
+--append FORWARD --source <%= local_network %> --out-interface <%= upstream_interface %> --match mac --mac-source <%= mac_address %> --jump ACCEPT
+  <%- end -%>
+--append FORWARD --destination <%= local_network %> --in-interface <%= upstream_interface %> --match state --state RELATED,ESTABLISHED --jump ACCEPT
+COMMIT
+*nat
+:PREROUTING ACCEPT
+:POSTROUTING ACCEPT
+:OUTPUT ACCEPT
+--append POSTROUTING --source <%= local_network %> --out-interface <%= upstream_interface %> --jump MASQUERADE
+<%- end -%>
+COMMIT
