@@ -65,6 +65,7 @@
 
   "iptables": {
     "allow_internet_access_for": {
+      "Abduel's Desktop":            "00:1B:11:1E:0B:05",
       "Afrique's Laptop":            "00:26:b6:10:d7:5c",
       "Fidea's Laptop":              "00:1a:73:15:7a:15",
       "Japhary's Laptop":            "00:1a:73:0f:79:17",
