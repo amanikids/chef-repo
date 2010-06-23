@@ -65,22 +65,23 @@
 
   "iptables": {
     "allow_internet_access_for": {
-      "Abduel's Desktop":            "00:1b:11:1e:0b:05",
-      "Afrique's Laptop":            "00:26:b6:10:d7:5c",
-      "Brenda's Laptop (Wireless)":  "00:0f:b0:c8:1c:d9",
-      "Brenda's Laptop (Wired)":     "00:14:a5:83:7e:6f",
-      "Fidea's Laptop":              "00:1a:73:15:7a:15",
-      "Japhary's Laptop (Old)":      "00:1a:73:0f:79:17",
-      "Japhary's Laptop (New)":      "c4:17:fe:35:8a:7b",
-      "Jared's Laptop":              "90:27:e4:e9:5a:58",
-      "Kathleen's Laptop":           "00:1a:73:15:7a:33",
-      "Matthew's Laptop (Wireless)": "00:16:cb:ba:ab:b4",
-      "Matthew's Laptop (Wired)":    "00:16:cb:8c:d5:59",
-      "Rogasian's Laptop (Old)":     "00:e0:b8:55:27:26",
-      "Rogasian's Laptop (New)":     "c4:17:fe:35:8c:ff",
-      "Salma's Laptop":              "00:1a:73:15:79:e7",
-      "Teachers' Desktop":           "00:04:76:0c:a2:a8",
-      "Valerie's Laptop":            "00:1a:73:15:7a:06"
+      "Abduel's Desktop":             "00:1b:11:1e:0b:05",
+      "Afrique's Laptop":             "00:26:b6:10:d7:5c",
+      "Brenda's Laptop (Wireless)":   "00:0f:b0:c8:1c:d9",
+      "Brenda's Laptop (Wired)":      "00:14:a5:83:7e:6f",
+      "Fidea's Laptop":               "00:1a:73:15:7a:15",
+      "Japhary's Laptop (Old)":       "00:1a:73:0f:79:17",
+      "Japhary's Laptop (New)":       "c4:17:fe:35:8a:7b",
+      "Jared's Laptop":               "90:27:e4:e9:5a:58",
+      "Kathleen's Laptop":            "00:1a:73:15:7a:33",
+      "Matthew's Laptop (Wireless)":  "00:16:cb:ba:ab:b4",
+      "Matthew's Laptop (Wired)":     "00:16:cb:8c:d5:59",
+      "Rogasian's Laptop (Old)":      "00:e0:b8:55:27:26",
+      "Rogasian's Laptop (Wireless)": "c4:17:fe:35:8c:ff",
+      "Rogasian's Laptop (Wired)":    "d8:d3:85:0e:b4:aa",
+      "Salma's Laptop":               "00:1a:73:15:79:e7",
+      "Teachers' Desktop":            "00:04:76:0c:a2:a8",
+      "Valerie's Laptop":             "00:1a:73:15:7a:06"
     }
   },
 
