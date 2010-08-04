@@ -105,9 +105,7 @@
     "workgroup": "AMANI",
     "listen_interfaces": ["eth1"],
     "shares": {
-      "communications": { "users": ["matthew", "valerie", "joe"] },
-      "lifeline":       { "users": ["matthew", "valerie", "joe", "salma"] },
-      "management":     { "users": ["matthew", "valerie", "japhary", "brenda", "afrique", "rogasian"] }
+      "communications": { "users": ["matthew", "valerie", "joe"] }
     }
   }
 }
