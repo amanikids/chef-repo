@@ -50,8 +50,3 @@ end
     rails_env environment
   end
 end
-
-gem_package 'bundler' do
-  source 'http://gemcutter.org'
-  version '0.6.0'
-end

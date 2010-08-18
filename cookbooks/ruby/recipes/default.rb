@@ -47,3 +47,16 @@ extra_packages.each do |pkg|
     action :install
   end
 end
+
+gem_package 'rubygems-update' do
+  version '1.3.7'
+end
+
+execute 'update rubygems' do
+  command 'update_rubygems'
+  not_if 'gem -v | grep 1.3.7'
+end
+
+gem_package 'bundler' do
+  version '1.0.0.rc.5'
+end
