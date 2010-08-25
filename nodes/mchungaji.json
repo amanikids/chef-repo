@@ -1,5 +1,5 @@
 {
-  "recipes": ["bind9", "dhcpd", "iptables", "samba", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "imagemagick", "kituo-application"],
+  "recipes": ["bind9", "dhcpd", "iptables", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "imagemagick", "kituo-application"],
 
   "bind9": {
     "forwarders": ["62.128.175.14", "62.128.175.15"],
@@ -92,20 +92,11 @@
 
   "rsnapshot": {
     "directories": [
-      "/var/lib/samba/shares",
       "/var/www/apps/git",
       "/var/www/apps/kituo_production/shared/system"
     ],
     "scripts": [
       "/usr/bin/mysqldump --all-databases | gzip > mysqldump_all_databases.sql.gz"
     ]
-  },
-
-  "samba": {
-    "workgroup": "AMANI",
-    "listen_interfaces": ["eth1"],
-    "shares": {
-      "communications": { "users": ["matthew", "valerie", "joe"] }
-    }
   }
 }
