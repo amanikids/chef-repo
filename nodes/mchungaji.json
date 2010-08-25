@@ -1,5 +1,5 @@
 {
-  "recipes": ["bind9", "dhcpd", "iptables", "samba", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "mysql-ruby::local", "imagemagick", "kituo-application"],
+  "recipes": ["bind9", "dhcpd", "iptables", "samba", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "imagemagick", "kituo-application"],
 
   "bind9": {
     "forwarders": ["62.128.175.14", "62.128.175.15"],
