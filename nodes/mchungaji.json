@@ -2,7 +2,7 @@
   "recipes": ["bind9", "dhcpd", "iptables", "rsnapshot", "git", "mysql::server", "apache2", "passenger::local", "imagemagick", "kituo-application"],
 
   "bind9": {
-    "forwarders": ["62.128.175.14", "62.128.175.15"],
+    "forwarders": ["8.8.8.8", "8.8.4.4"],
     "listen_on":  ["127.0.0.1", "10.0.0.1"],
 
     "zones": {
@@ -11,7 +11,7 @@
 
         "hosts": {
           "hn7000s": {
-            "address": "172.20.234.33",
+            "address": "10.193.139.225",
             "cnames": ["modem", "satellite", "afsat"]
           },
 
