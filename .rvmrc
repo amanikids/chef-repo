@@ -1,0 +1,3 @@
+# I'll want to make a proper gemset, but for now, `rake deploy` is just using
+# the default mac-installed capistrano.
+rvm use system
